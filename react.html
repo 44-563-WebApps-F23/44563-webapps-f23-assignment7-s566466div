@@ -11,7 +11,7 @@
 </head>
 <body>
 
-  <h2>Timeout - Red in 3 seconds</h2>
+  <h2>Divya speed check</h2>
 
   <button type="button"
   class="btn btn-primary"
@@ -19,6 +19,10 @@
   Click me change the color.</button>
   
   <p id="target">I will become red </p>
+  <div id="target">Your time</div>
+  <div id="counter">Count</div>
+  <button id="startTimer" onclick="startTime()">Start Timer</button>
+        <button id="react" onclick="recordTime()">React</button>
   
   <script> 
   function buttonPress1() {
@@ -33,18 +37,34 @@
     }, 3000)
   }
   // Step 5: Initialize reactTime to undefined
-let reactTime = undefined;
+  var reactTime = undefined;
 
-// Step 5b: Create a function to record the time when the "React" button is pressed
 function recordTime() {
-  reactTime = Date.now(); // Capture the current time in milliseconds
-  console.log("React time recorded: " + reactTime);
+    reactTime = Date.now();
+    document.getElementById("react").innerHTML = reactTime;
 }
 
-// Step 5c: Set the onclick property of the "React" button to call recordTime()
-document.getElementById("react").onclick = recordTime;
+function startTime() {
+    console.log("Getting form values")
+    for (let i = 0; i < 9; i++) {
+        setTimeout(function() {
+            document.getElementById("counter").innerHTML = i;
+        }, ((Math.floor(Math.random() * (10 - 2 + 1)) + 2 - i) * 1000));
+    }
 
-  </script>
-
+    setTimeout(function() {
+        if (reactTime === undefined) {
+            document.getElementById("target").innerHTML = 'Too Slow';
+        } 
+        else {
+            endTime = Date.now();
+            elapsedTime = endTime - reactTime;
+            document.getElementById("target").innerHTML = `Time was ${elapsedTime} milliseconds`;
+        }
+    }, Math.floor(Math.random() * (10 - 2 + 1)) + 2 * 1000);
+}
+</script>
+  
+</main>
 </body>
 </html>

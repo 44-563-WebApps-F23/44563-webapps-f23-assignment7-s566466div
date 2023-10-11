@@ -13,29 +13,24 @@
 </head>
 <body>
     <h1>Find the treasure by Divya</h1>
-    <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-style: italic; color: rgb(115, 106, 174);">
-        
-        <div>
-            Click on the locations to search for treasure, beware the traps
-           
-        </div>
-        <br>
-        <div id="locations">
-            Number of locations checked is zero.
+    <form class="ui container">
             
+        <p>
+          Click on the locations to search for treasure, beware of the traps!!!!
+        </p>
+        <br />
+        <div class="ui grid">
+          <div class="four wide column">
+            <p id="locations">Number of locations checked is 0.</p>
+          </div>
+          <div class="four wide column"><p id="penalty">Penalty is 0.</p></div>
+          <div class="eight wide column">
+            <button id="clickHelp"><p onclick="help()">Click for help</p></button>
+            <p id="help">Help report</p>
+          </div>
         </div>
-        <br>
-        <div id="Penalty">
-            Penalty is zero
-            
-        </div>
-        <br>
-        <div>Click for help.</div>
-        <br>
-        <div id="Help">
-            Help report
-            
-        </div>
+        <br />
+      </form>
     </div>
     <div>
     <div class="row" style="padding-left: 150px;">
@@ -162,6 +157,7 @@
 
       penaltyy.innerHTML = "Penalty is " + penalty;
       document.getElementById("help").textContent = helpmsg;
+      console.log(penalty);
     }
     </Script>
 	
