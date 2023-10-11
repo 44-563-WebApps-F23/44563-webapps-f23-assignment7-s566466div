@@ -13,20 +13,22 @@
 </head>
 <body>
     <h1>Find the treasure by Divya</h1>
-    <form class="ui container">
+    <form class="ui container" style="color: aqua; background-color: azure; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
             
         <p>
-          Click on the locations to search for treasure, beware of the traps!!!!
+          Click on the locations to search for treasure, beware of the traps
         </p>
         <br />
         <div class="ui grid">
           <div class="four wide column">
-            <p id="locations">Number of locations checked is 0.</p>
+            <p id="locations">Number of locations checked is zero.</p>
           </div>
-          <div class="four wide column"><p id="penalty">Penalty is 0.</p></div>
+          <div class="four wide column"><p id="penalty">Penalty is Zer0.</p></div>
           <div class="eight wide column">
             <button id="clickHelp"><p onclick="help()">Click for help</p></button>
             <p id="help">Help report</p>
+            <br>
+            <button id="random"><p onclick="newGame()">Make it as zero </p></button>
           </div>
         </div>
         <br />
@@ -86,15 +88,15 @@
     </div>
     <br>
     <div class="row" style="padding-left: 150px;">
-        <div class="col-md-2"><img id="15" onclick="check(20)" src="treasure-1.jpg" alt="tres-1"
+        <div class="col-md-2"><img id="20" onclick="check(20)" src="treasure-1.jpg" alt="tres-1"
                 style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="16" onclick="check(21)" src="treasure-1.jpg" alt="tres-2"
+        <div class="col-md-2"><img id="21" onclick="check(21)" src="treasure-1.jpg" alt="tres-2"
                 style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="17" onclick="check(22)" src="treasure-1.jpg" alt="tres-3"
+        <div class="col-md-2"><img id="22" onclick="check(22)" src="treasure-1.jpg" alt="tres-3"
                 style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="18" onclick="check(23)" src="treasure-1.jpg" alt="tres-4"
+        <div class="col-md-2"><img id="23" onclick="check(23)" src="treasure-1.jpg" alt="tres-4"
                 style="width: 100px;height:100px;"></div>
-        <div class="col-md-2"><img id="19" onclick="check(24)" src="treasure-1.jpg" alt="tres-5"
+        <div class="col-md-2"><img id="24" onclick="check(24)" src="treasure-1.jpg" alt="tres-5"
                 style="width: 100px;height:100px;"></div>
     </div>
     </div>
@@ -159,6 +161,30 @@
       document.getElementById("help").textContent = helpmsg;
       console.log(penalty);
     }
+    // Pirate Game
+
+// Function to generate a random number between min and max (inclusive)
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+ trapLocation = getRandomNumber(0, 24);
+ treasureLocation = getRandomNumber(0, 24);
+
+function newGame() {
+  // Reset locations and UI
+  trapLocation = getRandomNumber(0, 24);
+  treasureLocation = getRandomNumber(0, 24);
+  locationsChecked = 0;
+  penalty = 0;
+  document.getElementById("counter").innerHTML = "Count: 0";
+  document.getElementById("penalty").innerHTML = "Penalty: 0";
+  document.getElementById("target").innerHTML = "Your time";
+}
+
+// Call newGame when the "New Game" button is clicked
+document.getElementById("newGame").onclick = newGame;
+
     </Script>
 	
 	</body>
